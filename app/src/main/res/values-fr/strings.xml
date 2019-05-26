@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Où es-tu</string>
+    <string name="app_description">Permet de récupérer l\'emplacement d\'un téléphone portable par un simple message texte avec des mots magiques.</string>
+    <string name="security_exception">Erreur de sécurité lors de la récupération de l\'emplacement et de l\'envoi de SMS</string>
+    <string name="no_place">Impossible de déterminer l\'emplacement.</string>
+
+    <!-- Example General settings -->
+    <string name="pref_header_general">General</string>
+
+    <string name="button_label_okay">Okay</string>
+    <string name="pref_title_on_off">Activer les services de localisation</string>
+    <string name="pref_description_on_off">Activer l\'identification de votre position par message texte</string>
+
+    <string name="pref_title_magic_word">Mots magiques</string>
+    <string name="pref_description_magic_words">Quels sont les mots magiques dans un message texte qui révèle votre position?</string>
+
+    <string name="pref_title_system_gps_settings">Les paramètres de localisation</string>
+    <string name="pref_title_permission_settings">Paramètres d\'autorisation</string>
+
+    <string name="pref_title_howto">Licences</string>
+    <string name="pref_title_dataprotection">Protection des données</string>
+    <string name="pref_title_open_help">Ouvrir la page FAQ</string>
+
+    <string name="howto_text">
+        Comment ça marche? Installez l\'application sur vos amis, définissez un "mot magique". <br></br>
+         Chaque fois que vous envoyez un message texte (SMS) contenant le "mot magique" à vos amis, vous recevrez une réponse contenant un lien avec l\'emplacement actuel. <br/>
+    La confidentialité sera maintenue, car votre ami peut décider d'activer ou de désactiver cette application. <br></br>
+    La précision de la localisation dépend des informations disponibles (GPS, réseau, etc.). <br/>
+    </string>
+
+    <string name="error_no_maps">No Google Maps found!</string>
+
+    <string name="warning_location">Les services de localisation par SMS sont activés. Quelqu\'un d\'autre peut être en mesure de vous localiser en envoyant un message texte spécial.</string>
+    <string name="prefs_title_send_sms">Envoyer un message texte pour localiser la cible</string>
+    <string name="prefs_description_send_sms">Envoyer un SMS à un contact pour localiser son smartphone</string>
+
+    <string name="message_sms_sent">SMS envoyé pour recevoir l\'emplacement.</string>
+
+    <string-array name="array_apis">
+        <item>OpenCellID Location API</item>
+        <item>Google Location API</item>
+    </string-array>
+    <string-array name="array_api_keys">
+        <item>OpenCellID</item>
+        <item>Google</item>
+    </string-array>
+    <string name="pref_title_api_settings">API pour la localisation de téléphones</string>
+    <string name="btn_open_maps">Open Maps</string>
+</resources>

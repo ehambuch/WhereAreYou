@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:id="@+id/displaylocation" android:padding="4dp" android:paddingVertical="4dp">
+
+    <TextView android:id="@+id/displaylocation_network"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    />
+    <TextView android:id="@+id/displaylocation_mcc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/displaylocation_network"
+        />
+    <TextView android:id="@+id/displaylocation_mnc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/displaylocation_mcc"
+        />
+    <TextView android:id="@+id/displaylocation_area"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/displaylocation_mnc"
+        />
+    <TextView android:id="@+id/displaylocation_cell"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/displaylocation_area"
+        />
+    <TextView android:id="@+id/displaylocation_latitude"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/displaylocation_cell"
+        />
+    <TextView android:id="@+id/displaylocation_longitude"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/displaylocation_latitude"
+        />
+
+    <Button
+        android:id="@+id/button_openmaps"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/displaylocation_longitude"
+        android:layout_centerHorizontal="true"
+        android:text="@string/btn_open_maps"
+        android:enabled="false"/>
+    <!--
+    <WebView
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/web_view"
+        android:visibility="visible"/>
+
+    <com.google.android.gms.maps.MapView
+        android:id="@+id/map_view"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"/>
+
+-->
+    <com.google.android.gms.ads.AdView
+        xmlns:ads="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/adViewDisplayMap"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        ads:adSize="BANNER"
+        ads:adUnitId="@string/admob_addid"/>
+    <!-- TODO test adUnitID -->
+</RelativeLayout>

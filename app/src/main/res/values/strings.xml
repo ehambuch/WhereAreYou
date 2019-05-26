@@ -1,0 +1,61 @@
+<resources>
+    <string name="app_name">WhereAreYou</string>
+    <string name="author" translatable="false">Eric Hambuch (erichambuch@googlemail.com)</string>
+    <string name="app_description">Allows to retrieve the location of a mobile phone by a simple text message with some magic words.</string>
+    <string name="security_exception">Security error retrieving location and sending SMS</string>
+    <string name="no_place">Cannot determinate location.</string>
+
+    <!-- Example General settings -->
+    <string name="pref_header_general">General</string>
+
+    <string name="button_label_okay">Okay</string>
+    <string name="pref_title_on_off">Enable location service</string>
+    <string name="pref_description_on_off">Enable the identification of your location by text message</string>
+
+    <string name="pref_title_magic_word">Magic words</string>
+    <string name="pref_default_magic_word" translatable="false">Whereareyou</string>
+    <string name="pref_description_magic_words">What are the magic words in a text message that reveals your location?</string>
+
+    <string name="pref_title_system_gps_settings">Location settings</string>
+    <string name="pref_title_permission_settings">Permission settings</string>
+
+    <string name="pref_title_howto">Licenses</string>
+    <string name="pref_title_dataprotection">Data protection</string>
+    <string name="pref_title_open_help">Open FAQ page</string>
+
+    <string name="howto_text"><![CDATA[<h3>License</h3>
+        <p>This is a private project. Therefore you may use this app on your own risk and without any warranty. If you like it or have any comments, please write an email.</p>
+        <p>This app uses different APIs for translating mobile cell tower information into geographical coordinates: <a href="https://www.opencellid.org">OpenCelliD</a> under the <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a> license. Please contribute by the project by uploading cell tower information with your own smartphone.
+        <a href="https://developers.google.com/maps/documentation/geolocation/intro">Google Geolocation API</a> under the <a href="https://cloud.google.com/maps-platform/terms/">Google Maps and Cloud platform</a> terms.
+        This app contains mobile ads using the <a href="https://policies.google.com/privacy">AdMob framework</a> for testing purposes (I guess I won\'t get rich with that)
+        </p>
+        <h3>How does it work?</h3>
+        <p>Install the app on your friends mobile, set a <em>magic word</em>.
+        Whenever you send a text message (SMS) with the <em>magic word</em> to your friends mobile, you will receive a response containing a link with the current location.<br></br>
+        </p><p>Privacy will be maintained, as your friend can decide to switch on or off this app.
+        The accuracy of the location depends on the available information (GPS, network, etc.).</p>]]>
+    </string>
+
+    <string name="error_no_maps">No Google Maps found!</string>
+    <string name="geolocation_api_url" translatable="false">https://www.googleapis.com/geolocation/v1/geolocate?key=</string>
+
+    <string name="warning_location">Location services by text message is enabled. Someone else may be able to locate you by sending a special text message.</string>
+    <string name="prefs_title_send_sms">Send text message to locate target</string>
+    <string name="prefs_description_send_sms">Send a text message to a contact to locate his smartphone</string>
+
+    <string name="message_sms_sent">SMS sent to receive location.</string>
+
+    <string name="admob_appid" translatable="false">ca-app-pub-6851248802879048~9516366366</string>
+    <string name="admob_addid" translatable="false">ca-app-pub-6851248802879048/8885810975</string>
+
+    <string-array name="array_apis">
+        <item>OpenCellID Location API</item>
+        <item>Google Location API</item>
+    </string-array>
+    <string-array name="array_api_keys">
+        <item>OpenCellID</item>
+        <item>Google</item>
+    </string-array>
+    <string name="pref_title_api_settings">API for cell phone localization</string>
+    <string name="btn_open_maps">Open Maps</string>
+</resources>

@@ -1,0 +1,48 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <SwitchPreference
+        android:defaultValue="true"
+        android:key="onoff_switch"
+        android:summary="@string/pref_description_on_off"
+        android:title="@string/pref_title_on_off" />
+
+    <EditTextPreference
+        android:capitalize="words"
+        android:defaultValue="@string/pref_default_magic_word"
+        android:inputType="textCapWords"
+        android:key="magic_words"
+        android:maxLines="1"
+        android:selectAllOnFocus="true"
+        android:singleLine="true"
+        android:title="@string/pref_title_magic_word"
+        android:summary="@string/pref_description_magic_words"/>
+
+    <Preference android:title="@string/prefs_title_send_sms" android:summary="@string/prefs_description_send_sms">
+        <intent android:action="android.intent.category.DEFAULT" android:targetPackage="whereareyou.hambuch.de.whereareyou" android:targetClass="whereareyou.hambuch.de.whereareyou.SettingsActivity$SendSmsActivity"/>
+    </Preference>
+
+    <Preference android:title="@string/pref_title_system_gps_settings">
+        <intent android:action="android.settings.LOCATION_SOURCE_SETTINGS" />
+    </Preference>
+
+    <Preference android:title="@string/pref_title_permission_settings">
+        <intent android:action="android.settings.APPLICATION_DETAILS_SETTINGS" android:targetPackage="whereareyou.hambuch.de.whereareyou" android:data="package:whereareyou.hambuch.de.whereareyou"/>
+    </Preference>
+
+    <ListPreference android:key="location_api" android:title="@string/pref_title_api_settings" android:entries="@array/array_apis" android:entryValues="@array/array_api_keys">
+    </ListPreference>
+
+    <Preference android:title="@string/pref_title_howto">
+        <intent android:action="android.intent.category.DEFAULT" android:targetPackage="whereareyou.hambuch.de.whereareyou" android:targetClass="whereareyou.hambuch.de.whereareyou.SettingsActivity$HowToActivity"/>
+    </Preference>
+
+    <Preference android:title="@string/pref_title_dataprotection">
+        <intent android:action="android.intent.action.VIEW" android:data="https://sites.google.com/site/erichambuch/dataprotection#whereareyou" />
+    </Preference>
+
+    <Preference android:title="@string/pref_title_open_help">
+        <intent android:action="android.intent.action.VIEW" android:data="https://sites.google.com/site/erichambuch/whereareyou" />
+    </Preference>
+
+    <whereareyou.hambuch.de.whereareyou.AdPreferences android:layout="@layout/ad_layout"/>
+</PreferenceScreen>

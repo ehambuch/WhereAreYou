@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Wo Bist Du?</string>
+    <string name="app_description">Ermöglicht die Lokalisierung eines Smartphones über eine simple SMS mit einem Codewort.</string>
+    <string name="howto_text">Wie funktioniert das nun? Installieren Sie die App auf einem Mobiltelefon ihres Partners, vereinbaren Sie ein \"Codewort\".<br />Wenn Sie nun eine SMS mit diesem Codewort an das Telefon schicken, so antwortet dieses mit der aktuellen Postion.<br /> Die Privatssphäre bleibt erhalten, weil die Zielperson zustimmen muss und jederzeit die App deaktivieren kann.<br />Die Genauigkeit der Positionsangabe hängt natürlich von verschiedenen Faktoren und vorhandenen Infos ab (GPS, Internet, Mobilfunknetzetc.).</string>
+    <string name="no_place">Kann keinen Ort ermitteln.</string>
+    <string name="security_exception">Sicherheitsfehler beim Ermitteln des Orts und senden der SMS</string>
+    <string name="pref_title_system_gps_settings">Ortsbestimmung</string>
+    <string name="pref_title_permission_settings">Berechtigungen</string>
+    <string name="pref_title_open_help">FAQ öffnen</string>
+    <string name="pref_title_on_off">Ortsbestimmung aktivieren</string>
+    <string name="pref_title_magic_word">Codewort</string>
+    <string name="pref_title_howto">Lizenz</string>
+    <string name="pref_header_general">Allgemeines</string>
+    <string name="pref_description_on_off">Aktiviert die Bestimmung ihres Aufenthaltsorts per SMS</string>
+    <string name="pref_description_magic_words">Welches ist das vereinbarte Codewort in der SMS zur Ortsbestimmung?</string>
+    <string name="error_no_maps">Kein Google Maps installiert!</string>
+    <string name="pref_title_dataprotection">Datenschutz</string>
+    <string name="warning_location">Standortermittlung aktiviert. Andere Personen können ihren Standort ermitteln, indem Sie ihnen eine spezielle SMS senden.</string>
+    <string name="button_label_okay">Okay</string>
+    <string name="prefs_title_send_sms">SMS zur Lokalisierung versenden</string>
+    <string name="prefs_description_send_sms">SMS  an ausgewählten Kontakt versenden zur Lokalisierung des Smartphones</string>
+    <string name="message_sms_sent">SMS versendet.</string>
+    <string name="pref_title_api_settings">API zur Mobilfunk-Lokalisierung</string>
+    <string name="btn_open_maps">Google Maps öffnen</string>
+</resources>
