@@ -2,8 +2,8 @@ package whereareyou.hambuch.de.whereareyou;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
-import android.support.annotation.Nullable;
+
+import androidx.annotation.Nullable;
 
 import java.io.IOException;
 
@@ -24,7 +24,7 @@ public class DetermineLocationProviderCache implements IDetermineLocationProvide
     @Override
     public GeoLocation determinateGeoLocation(String networkType, String mcc, String mnc, String areaCode, String cellId) throws IOException {
         int hashCode = (networkType + mcc + mnc + areaCode + cellId).hashCode();
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        SharedPreferences prefs = context.getSharedPreferences(AppInfo.APP_NAME, Context.MODE_PRIVATE);
         int storedHash = prefs.getInt("cache.location.hash", -1);
         if ( hashCode == storedHash ) {
             return new GeoLocation(prefs.getFloat("cache.location.longitude", 0), prefs.getFloat("cache.location.latitude", 0));

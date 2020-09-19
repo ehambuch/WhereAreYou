@@ -6,17 +6,17 @@ import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
@@ -39,6 +39,14 @@ import java.util.List;
  * </p>
  */
 public class DisplayLocationActivity extends AppCompatActivity implements OnMapReadyCallback {
+
+    // all in lowercase as used as URL parameters as well as for intent extras
+    public static final String EXTRA_NETWORK = "networktype";
+    public static final String EXTRA_MCC = "mcc";
+    public static final String EXTRA_MNC = "mnc";
+    public static final String EXTRA_AREACODE = "areacode";
+    public static final String EXTRA_CELLID = "cellid";
+    public static final String EXTRA_SENDER = "sender";
 
     private static class DeterminateLocationAsyncTask extends AsyncTask<String, Void, IDetermineLocationProvider.GeoLocation> {
 
@@ -81,7 +89,7 @@ public class DisplayLocationActivity extends AppCompatActivity implements OnMapR
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        MobileAds.initialize(this, getString(R.string.admob_appid));
+        MobileAds.initialize(this );
         // Test ID ca-app-pub-3940256099942544/6300978111
 
         setContentView(R.layout.displaylocation);
@@ -109,29 +117,29 @@ public class DisplayLocationActivity extends AppCompatActivity implements OnMapR
             String cellId = null;
             // if we are called directly from android, then we only get a Query String
             if (uri != null) {
-                networkType = uri.getQueryParameter("networkType");
-                mcc = uri.getQueryParameter("mcc");
-                mnc = uri.getQueryParameter("mnc");
-                areaCode = uri.getQueryParameter("areaCode");
-                cellId = uri.getQueryParameter("cellId");
+                networkType = uri.getQueryParameter(EXTRA_NETWORK);
+                mcc = uri.getQueryParameter(EXTRA_MCC);
+                mnc = uri.getQueryParameter(EXTRA_MNC);
+                areaCode = uri.getQueryParameter(EXTRA_AREACODE);
+                cellId = uri.getQueryParameter(EXTRA_CELLID);
             }
 
-            mTitle = intent.getStringExtra("sender");
+            mTitle = intent.getStringExtra(EXTRA_SENDER);
             if (mTitle == null)
                 mTitle = "Position";
 
             if (networkType == null)
-                networkType = intent.getStringExtra("networkType");
+                networkType = intent.getStringExtra(EXTRA_NETWORK);
             if (mcc == null)
-                mcc = intent.getStringExtra("mcc");
+                mcc = intent.getStringExtra(EXTRA_MCC);
             if( mnc == null)
-                mnc = intent.getStringExtra("mnc");
+                mnc = intent.getStringExtra(EXTRA_MNC);
             if (areaCode ==null)
-                areaCode = intent.getStringExtra("areaCode");
+                areaCode = intent.getStringExtra(EXTRA_AREACODE);
             if(cellId == null)
-                cellId = intent.getStringExtra("cellId");
+                cellId = intent.getStringExtra(EXTRA_CELLID);
 
-            mTitle = intent.getStringExtra("sender");
+            mTitle = intent.getStringExtra(EXTRA_SENDER);
             if (mTitle == null)
                 mTitle = "Position";
 
@@ -231,7 +239,7 @@ public class DisplayLocationActivity extends AppCompatActivity implements OnMapR
     }
 
     private IDetermineLocationProvider getLocationProvider() {
-        String api = PreferenceManager.getDefaultSharedPreferences(this).getString(Prefs.LOCATION_API, "OpenCellID");
+        String api = getSharedPreferences(AppInfo.APP_NAME, MODE_PRIVATE).getString(Prefs.LOCATION_API, "OpenCellID");
         if ( api.equals("Google"))
             return new DetermineLocationProviderGoogle();
         else

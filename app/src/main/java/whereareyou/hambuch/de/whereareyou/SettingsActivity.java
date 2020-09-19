@@ -17,15 +17,16 @@ import android.preference.PreferenceActivity;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
 import android.provider.ContactsContract;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.app.ActionBar;
 import android.telephony.SmsManager;
 import android.text.Html;
 import android.text.method.LinkMovementMethod;
 import android.view.MenuItem;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.ActionBar;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
 import com.google.android.gms.ads.MobileAds;
 
@@ -211,16 +212,12 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
      */
     public static class SendSmsActivity extends Activity {
 
-        private Toast toast;
-
         @Override
         public void onCreate(Bundle budle) {
             super.onCreate(budle);
 
-           // TODO
-            // if (ContextCompat.checkSelfPermission(this, Manifest.permission.SEND_SMS) != PackageManager.PERMISSION_GRANTED ||
-               //
-               // ActivityCompat.requestPermissions(this, new String[] {Manifest.permission.SEND_SMS}, 456);
+            if (ContextCompat.checkSelfPermission(this, Manifest.permission.SEND_SMS) != PackageManager.PERMISSION_GRANTED)
+               ActivityCompat.requestPermissions(this, new String[] {Manifest.permission.SEND_SMS}, 456);
         }
 
         @Override
@@ -228,8 +225,8 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
             super.onStart();
 
             // to pick a contact, check out: https://developer.android.com/guide/components/intents-common#PickContact
-            Intent intent = new Intent(Intent.ACTION_PICK, ContactsContract.Contacts.CONTENT_URI);
-            intent.setType(ContactsContract.CommonDataKinds.Phone.CONTENT_TYPE);
+            Intent intent = new Intent(Intent.ACTION_PICK);
+            intent.setDataAndType(ContactsContract.Contacts.CONTENT_URI, ContactsContract.CommonDataKinds.Phone.CONTENT_TYPE);
             if (intent.resolveActivity(getPackageManager()) != null) {
                 startActivityForResult(intent, 123);
             }
@@ -240,7 +237,7 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
         protected void onActivityResult(int requestCode, int resultCode, Intent data) {
             if (requestCode == 123 && resultCode == RESULT_OK) {
                 final SmsManager smsManager = SmsManager.getDefault();
-                final String magicWords = PreferenceManager.getDefaultSharedPreferences(this).
+                final String magicWords = getSharedPreferences(AppInfo.APP_NAME, MODE_PRIVATE).
                         getString(Prefs.MAGIC_WORDS, getString(R.string.pref_default_magic_word));
                 // Get the URI and query the content provider for the phone number
                 Uri contactUri = data.getData();

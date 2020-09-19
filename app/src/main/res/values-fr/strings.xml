@@ -21,11 +21,10 @@
     <string name="pref_title_howto">Licences</string>
     <string name="pref_title_dataprotection">Protection des données</string>
     <string name="pref_title_open_help">Ouvrir la page FAQ</string>
-
     <string name="howto_text">
         Comment ça marche? Installez l\'application sur vos amis, définissez un "mot magique". <br></br>
          Chaque fois que vous envoyez un message texte (SMS) contenant le "mot magique" à vos amis, vous recevrez une réponse contenant un lien avec l\'emplacement actuel. <br/>
-    La confidentialité sera maintenue, car votre ami peut décider d'activer ou de désactiver cette application. <br></br>
+    La confidentialité sera maintenue, car votre ami peut décider d\'activer ou de désactiver cette application. <br></br>
     La précision de la localisation dépend des informations disponibles (GPS, réseau, etc.). <br/>
     </string>
 

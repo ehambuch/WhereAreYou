@@ -1,6 +1,6 @@
 package whereareyou.hambuch.de.whereareyou;
 
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 
 import java.io.IOException;
 
@@ -32,6 +32,7 @@ public interface IDetermineLocationProvider {
      * @return the geo coordinates or null
      * @throws IOException on errors
      */
-    public @Nullable GeoLocation determinateGeoLocation(String networkType, String mcc, String mnc, String areaCode, String cellId) throws IOException;
+    public @Nullable
+    GeoLocation determinateGeoLocation(String networkType, String mcc, String mnc, String areaCode, String cellId) throws IOException;
 
 }

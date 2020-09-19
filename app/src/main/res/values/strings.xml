@@ -58,4 +58,5 @@
     </string-array>
     <string name="pref_title_api_settings">API for cell phone localization</string>
     <string name="btn_open_maps">Open Maps</string>
+    <string name="get_location_request">Retrieving location request</string>
 </resources>

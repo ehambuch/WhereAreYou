@@ -1,8 +1,9 @@
 package whereareyou.hambuch.de.whereareyou;
 
 import android.Manifest;
-import android.support.annotation.RequiresPermission;
 import android.util.Log;
+
+import androidx.annotation.RequiresPermission;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -15,6 +16,7 @@ import java.io.OutputStreamWriter;
 import java.io.Writer;
 import java.net.URL;
 import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 
 import javax.net.ssl.HttpsURLConnection;
 
@@ -62,7 +64,7 @@ public class DetermineLocationProviderGoogle implements IDetermineLocationProvid
             JSONObject request = new JSONObject().put("homeMobileCountryCode", mcc).put("homeMobileNetworkCode", mnc).put("radioType", networkType).put("considerIp", false).put("cellTowers",
                     new JSONArray().put(new JSONObject().put("homeMobileCountryCode", mcc).put("homeMobileNetworkCode", mnc).put("locationAreaCode", areaCode).put("cellId", cellId)));
 
-            Writer writer = new OutputStreamWriter(httpConnection.getOutputStream(), Charset.forName("UTF-8"));
+            Writer writer = new OutputStreamWriter(httpConnection.getOutputStream(), StandardCharsets.UTF_8);
             writer.write(request.toString());
             writer.flush();
             writer.close();

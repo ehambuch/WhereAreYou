@@ -1,7 +1,8 @@
 package whereareyou.hambuch.de.whereareyou;
 
-import android.support.annotation.Nullable;
 import android.util.Log;
+
+import androidx.annotation.Nullable;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -10,7 +11,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URL;
-import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 
 import javax.net.ssl.HttpsURLConnection;
 
@@ -37,7 +38,7 @@ public class DetermineLocationProviderOpenCellId implements IDetermineLocationPr
                 throw new IOException("Error calling OpenCellID API: " + responseCode);
             }
 
-            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(httpConnection.getInputStream(), Charset.forName("UTF-8")));
+            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(httpConnection.getInputStream(), StandardCharsets.UTF_8));
             StringBuilder stringBuilder = new StringBuilder();
             String line;
             while ((line = bufferedReader.readLine()) != null) {
@@ -55,7 +56,7 @@ public class DetermineLocationProviderOpenCellId implements IDetermineLocationPr
                     String longitude = String.valueOf(responseJSON.get("lon"));
                     String range = String.valueOf(responseJSON.get("range"));
                     GeoLocation locationResult =  new GeoLocation(longitude, latitude);
-                    locationResult.radius = Double.valueOf(range);
+                    locationResult.radius = Double.parseDouble(range);
                     return locationResult;
                 } else
                     throw new IOException("Error calling OpenCellID API: no response");
